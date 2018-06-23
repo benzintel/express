@@ -1,0 +1,28 @@
+{
+  "name": "express_tutorial",
+  "version": "1.0.0",
+  "description": "tutorial",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benzintel/express.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "benzintel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benzintel/express/issues"
+  },
+  "homepage": "https://github.com/benzintel/express#readme"
+}
