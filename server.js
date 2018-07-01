@@ -1,10 +1,16 @@
-const express = require('express')
-const dotenv  = require('dotenv')
-const app = express()
+import express from 'express'
+import dotenv  from 'dotenv'
 
+// connection DB
+import { mySqlconnection }  from './connection/mysql'
+
+const app  = express();
 const beseProject = __dirname
 const basePathHTML = beseProject + '/views/'
 const basePathPublic = beseProject + '/public'
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 
 //.env
@@ -18,7 +24,9 @@ app.get('/', (req, res) => {
 
 // RENDER HTML
 app.get('/test', (req, res) => {
-	res.sendFile(basePathHTML + 'index.html');
+	res.render(basePathHTML + 'index.html', { 
+		name: "benzintel"
+	})
 })
 
 // POST
@@ -34,6 +42,13 @@ app.put('/user', function (req, res) {
 // DELETE
 app.delete('/user', function (req, res) {
   res.send('Got a DELETE request at /user')
+})
+
+app.get('/mysql', (req, res) => {
+	mySqlconnection('dbname', "SELECT * FROM users", function(result) {
+		res.setHeader('Content-Type', 'application/json');
+    	res.send(JSON.stringify(result));
+	});
 })
 
 // SET Static folder
