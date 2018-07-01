@@ -1,4 +1,4 @@
-var mysql = require('mysql')
+import mysql from 'mysql'
 
 export const mySqlconnection = (dbName, querySQL, callBack) => {
 	var connection = mysql.createConnection({

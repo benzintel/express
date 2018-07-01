@@ -45,7 +45,7 @@ app.delete('/user', function (req, res) {
 })
 
 app.get('/mysql', (req, res) => {
-	mySqlconnection('dbname', "SELECT * FROM users", function(result) {
+	mySqlconnection(process.env.DB_NAME, "SELECT * FROM users", function(result) {
 		res.setHeader('Content-Type', 'application/json');
     	res.send(JSON.stringify(result));
 	});
