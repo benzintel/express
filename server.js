@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv  from 'dotenv'
 
 // connection DB
-import { mySqlconnection }  from './connection/mysql'
+import { mySqlconnection }  from './connection/database'
 
 const app  = express();
 const beseProject = __dirname
